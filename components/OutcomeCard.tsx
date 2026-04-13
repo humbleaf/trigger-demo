@@ -1,5 +1,4 @@
 'use client'
-import { useEffect } from 'react'
 import type { Scenario, TraceEvent } from '@/lib/demo-fixtures'
 
 interface Props {
@@ -9,15 +8,9 @@ interface Props {
 }
 
 export function OutcomeCard({ outcome, fixture, onReset }: Props) {
-  const s       = outcome.outcome
-  const isPass  = s === 'SETTLED'
-  const color   = isPass ? 'var(--green)' : s === 'DENIED' ? 'var(--red)' : 'var(--amber)'
-
-  // Auto-reset after 12 seconds
-  useEffect(() => {
-    const t = setTimeout(onReset, 12_000)
-    return () => clearTimeout(t)
-  }, [onReset])
+  const s      = outcome.outcome
+  const isPass = s === 'SETTLED'
+  const color  = isPass ? 'var(--green)' : s === 'DENIED' ? 'var(--red)' : 'var(--amber)'
 
   return (
     <div style={{
