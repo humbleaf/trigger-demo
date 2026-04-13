@@ -103,9 +103,23 @@ export function ProofCard({ proof, fixture }: Props) {
           <ConfirmedRow label="Chain" value="84532" mono />
           <div style={{
             marginTop: 4, fontSize: 11, color: 'var(--text-3)',
-            fontFamily: 'var(--mono)', lineHeight: 1.5,
+            fontFamily: 'var(--mono)', lineHeight: 1.8,
           }}>
-            Receipt queued for anchoring · proof will appear in gateway feed
+            Receipt queued for anchoring ·{' '}
+            <a
+              href="https://www.agentchain.xyz/#demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: 'var(--accent)',
+                textDecoration: 'none',
+                fontWeight: 500,
+                borderBottom: '1px solid color-mix(in srgb, var(--accent) 40%, transparent)',
+                paddingBottom: 1,
+              }}
+            >
+              show on agentchain ↗
+            </a>
           </div>
         </div>
       )}

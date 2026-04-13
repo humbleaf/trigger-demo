@@ -192,7 +192,7 @@ export default function Home() {
           </span>
         </div>
         <div style={styles.footerRight}>
-          <span style={styles.footerText}>Humbleaf, Inc. &copy; 2006</span>
+          <span style={styles.footerText}>Humbleaf, Inc. &copy; 2026</span>
         </div>
       </footer>
     </main>
