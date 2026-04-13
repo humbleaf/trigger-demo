@@ -72,7 +72,7 @@ export default function Home() {
       {/* ── Header ──────────────────────────────────────────────── */}
       <header style={styles.header}>
         <div style={styles.logoRow}>
-          <span style={styles.logoAC}>AgentChain</span>
+          <a href="https://agentchain.xyz" target="_blank" rel="noopener noreferrer" style={{ ...styles.logoAC, color: '#fff', textDecoration: 'none' }}>AgentChain</a>
           <span style={styles.logoDivider}>×</span>
           <span style={styles.logoTD}>Trigger.dev</span>
         </div>
@@ -81,9 +81,14 @@ export default function Home() {
           <span style={styles.headlineAccent}>Policy-checked before value moves.</span>
         </h1>
         <p style={styles.subline}>
-          Trigger.dev runs the workflow.&nbsp;
-          AgentChain evaluates whether the action is allowed to settle.
+          <span style={styles.triggerText}>Trigger.dev</span> runs the workflow.&nbsp;
+          <a href="https://agentchain.xyz" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', textDecoration: 'underline', textDecorationColor: '#10B981', textUnderlineOffset: '3px' }}>AgentChain</a> evaluates whether the action is allowed to settle.
         </p>
+        <div style={styles.actionRow}>
+          <a href="https://docs.agentchain.xyz" target="_blank" rel="noopener noreferrer" style={styles.docsButton}>
+            Read the Documentation ↗
+          </a>
+        </div>
       </header>
 
       {/* ── Content ─────────────────────────────────────────────── */}
@@ -173,6 +178,23 @@ export default function Home() {
           )}
         </div>
       </div>
+
+      {/* ── Footer ────────────────────────────────────────────── */}
+      <footer style={styles.footer}>
+        <div style={styles.footerLeft}>
+          <svg width={16} height={16} viewBox="0 0 28 28" fill="none" style={{ opacity: 0.8 }}>
+            <polygon points="14,2 24,8 24,20 14,26 4,20 4,8" stroke="#10B981" strokeWidth="1.618" fill="none" />
+            <polygon points="14,7 19,10 19,18 14,21 9,18 9,10" fill="#10B981" opacity="0.382" />
+            <polygon points="14,11 17,13 17,17 14,19 11,17 11,13" fill="#10B981" opacity="0.618" />
+          </svg>
+          <span style={styles.footerText}>
+            powered by <a href="https://agentchain.xyz" target="_blank" rel="noopener noreferrer" style={{ color: '#10B981', textDecoration: 'none', fontWeight: 500 }}>Agentchain</a>
+          </span>
+        </div>
+        <div style={styles.footerRight}>
+          <span style={styles.footerText}>Humbleaf, Inc. &copy; 2006</span>
+        </div>
+      </footer>
     </main>
   )
 }
@@ -203,7 +225,19 @@ const styles: Record<string, React.CSSProperties> = {
   },
   logoAC:      { color: 'var(--accent)' },
   logoDivider: { color: 'var(--text-3)' },
-  logoTD:      { color: 'var(--text-2)' },
+  logoTD: {
+    background: 'linear-gradient(90deg, #a9ff53 0%, #a9ff53 50%, #954CFF 90%)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    color: 'transparent',
+  },
+  triggerText: {
+    background: 'linear-gradient(90deg, #a9ff53 0%, #a9ff53 50%, #954CFF 90%)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    color: 'transparent',
+    fontWeight: 600,
+  },
   headline: {
     fontSize:   'clamp(28px, 4vw, 42px)',
     fontWeight: 700,
@@ -219,6 +253,24 @@ const styles: Record<string, React.CSSProperties> = {
     color:    'var(--text-2)',
     maxWidth:  560,
     margin:   '0 auto',
+  },
+  actionRow: {
+    marginTop: 24,
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  docsButton: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    padding: '10px 20px',
+    background: 'var(--surface)',
+    border: '1px solid var(--border)',
+    borderRadius: 8,
+    color: 'var(--text)',
+    fontSize: 14,
+    fontWeight: 500,
+    textDecoration: 'none',
+    transition: 'all 0.15s',
   },
   content: {
     display:             'grid',
@@ -250,5 +302,24 @@ const styles: Record<string, React.CSSProperties> = {
     background:  'var(--accent-dim)',
     border:      '1px solid var(--accent)',
     color:       'var(--accent)',
+  },
+  footer: {
+    marginTop: 64,
+    paddingTop: 24,
+    borderTop: '1px solid var(--border)',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  footerLeft: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 8,
+  },
+  footerRight: {},
+  footerText: {
+    fontSize: 13,
+    color: 'var(--text-3)',
+    fontWeight: 500,
   },
 }
